@@ -1,0 +1,104 @@
+var verificado = () => {
+            if(usuario.verificado){
+                document.getElementById('verif').innerHTML = '<i class="icon2 fa-regular fa-circle-check"></i>';
+            }else{
+                document.getElementById('verif').innerHTML = '<i class="icon2 fa-solid fa-circle-check"></i>';
+            }
+        }
+
+const renderizarUsuarios = () => {
+    usuarios.forEach(usuario => {
+        document.getElementById('usuarios').innerHTML +=
+        `<div id="contenedor-usuario" onclick="ocultar2()">
+        <div><img id="img-usuarios" src="../Imagenes/${usuario.imagenPerfil}" alt=""></div> 
+        <div id="nombre">${usuario.nombre}</div>
+        </div>
+        `
+    });
+}
+
+const renderizarPortada = () => {
+    usuarios.forEach(usuario => {
+        document.getElementById('contenedor2').innerHTML +=
+        `<div id="portada">
+        <img id="fondo-img" src="../Imagenes/${usuario.imagenPortada}" alt="">
+        <div id="info-doble">
+            <div id="informacion">
+                <div id="info">
+                    <div>${usuario.nombre}</div>
+                    <div>edad</div>
+                </div>
+                <div><i class="icon2 fa-solid fa-briefcase"></i>${usuario.ocupacion}</div>
+                <div><i class="icon2 fa-solid fa-location-dot"></i>Ubicacion</div>
+                <div id="cualidades">
+                    <div class="cualidades">1</div>
+                    <div class="cualidades">2</div>
+                    <div class="cualidades">3</div>
+            </div>
+        </div>  
+           </div>
+            <div id="navegacion-inferior">
+                <div><i class="icon3 fa-solid fa-arrow-left"></i></div>
+                <div><i class="icon3 fa-solid fa-heart"></i></div>
+                <div><i class="icon3 fa-solid fa-arrow-right"></i></div>
+            </div>
+            </div>
+        `
+    });
+}
+
+var matches = [];
+`
+        <img id="fondo-img" src="../Imagenes/${usuario.imagenPortada}" alt="">
+        <div id="info-doble">
+            <div id="informacion">
+                <div id="info">
+                    <div>${usuario.nombre}</div>
+                    <div>edad</div>
+                    <div id="verif">${verificado}</div>
+                </div>
+                <div><i class="icon2 fa-solid fa-briefcase"></i>${usuario.ocupacion}</div>
+                <div><i class="icon2 fa-solid fa-location-dot"></i>Ubicacion</div>
+                <div id="cualidades">
+                    <div class="cualidades">1</div>
+                    <div class="cualidades">2</div>
+                    <div class="cualidades">3</div>
+            </div>
+        </div>
+        `
+
+        const renderizarMatches = () => {
+    console.log(matches);
+    matches.forEach(match => {
+        document.getElementById('matches').innerHTML +=
+        `<div id="contenedor-usuario" onclick="ocultar2()">
+        <!-- <div><img src="../Imagenes/${usuario.imagenPerfil}" alt=""></div> -->
+        <div id="nombre">${usuario.nombre}</div>
+        </div>
+        `
+    });
+}
+
+const cargarMatches = async (indice) =>  {
+    let respuesta = await fetch(`"localhost:3000/users/${indice}/matches"`,
+        {
+            method: "GET",
+            headers: {
+                "Content-Type": "aplication/json",
+            },
+        }
+    );
+    matches = await respuesta.json();
+    console.log(matches);
+    // renderizarUsuario();
+}
+cargarMatches(3);
+
+
+// var contenedor =[];
+// function contenedores(){
+//     for(let i=0; i<2; i++){
+//         contenedor[i] = document.getElementById(`contenedor${i+1}`);
+//     }
+//     return contenedor;
+// }

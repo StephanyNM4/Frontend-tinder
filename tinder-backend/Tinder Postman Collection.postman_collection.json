@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "febbdf1f-5785-4c5e-89fe-ae5490629863",
+		"name": "Tinder Postman Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24822985"
+	},
+	"item": [
+		{
+			"name": "Obtener usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener matches por usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users/1/matches",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1",
+						"matches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nuevo usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Naruto\",\n    \"genero\": \"M\",\n    \"verificado\": false,\n    \"edad\": 20,\n    \"imagenPerfil\": \"profile-pics/naruto.jpg\",\n    \"imagenPortada\": \"cover-pics/naruto.jpg\",\n    \"ocupacion\": \"Hokage\",\n    \"ciudad\": \"Tegucigalpa\",\n    \"intereses\": [\"Pelear\", \"Comer\", \"Genkidamas\"],\n    \"matches\": [4],\n    \"likes\": [4],\n    \"generoInteres\": [\"F\"]\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Naruto\",\n    \"genero\": \"M\",\n    \"verificado\": false,\n    \"edad\": 20,\n    \"imagenPerfil\": \"profile-pics/naruto.jpg\",\n    \"imagenPortada\": \"cover-pics/naruto.jpg\",\n    \"ocupacion\": \"Hokage\",\n    \"ciudad\": \"Tegucigalpa\",\n    \"intereses\": [\"Pelear\", \"Comer\", \"Genkidamas\"],\n    \"matches\": [4],\n    \"likes\": [4],\n    \"generoInteres\": [\"F\"]\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
